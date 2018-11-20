@@ -2,6 +2,10 @@
 
 This is a custom Star Rating Salesforce Lightning Component. This component is based on [vue-star-rating](https://github.com/craigh411/vue-star-rating);
 
+## Demo
+
+![star-rating-demo](./star-rating-demo.gif)
+
 ## Implementation Notes
 
 Note: `activeColor` only accepts a hex color *without* the leading `#` symbol.
