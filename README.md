@@ -8,7 +8,7 @@ This is a custom Star Rating Salesforce Lightning Component. This component is b
 
 ## Implementation Notes
 
-Note: `activeColor` only accepts a hex color *without* the leading `#` symbol.
+Requires a Static Resource uploaded for the `Star.cmp`. Static Resource .zip is available here, and should be uploaded to Salesforce as Vendors.
 
 ## Sample Usage
 ```html
@@ -21,7 +21,7 @@ Note: `activeColor` only accepts a hex color *without* the leading `#` symbol.
   <lightning:card title="Star Rating">
     <c:StarRating rating="{!v.rating}"
       maxRating="5"
-      activeColor="ffd055"
+      activeColor="#ffd055"
       readOnly="false" />
     <aura:set attribute="footer" >
       {!v.rating}
