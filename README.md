@@ -1,6 +1,6 @@
 # lightning-star-rating
 
-This is a custom Star Rating Salesforce Lightning Component. This component is based on [vue-star-rating](https://github.com/craigh411/vue-star-rating);
+A Salesforce Lightning StarRating Component. Requires Font Awesome Static Resource.
 
 ## Demo
 
