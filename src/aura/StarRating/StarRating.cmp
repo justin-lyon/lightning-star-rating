@@ -1,15 +1,21 @@
 <aura:component description="StarRating" >
-	<aura:attribute name="url" type="String" default="/index.html" />
 	<aura:attribute name="rating" type="Integer" default="0" />
 	<aura:attribute name="maxRating" type="Integer" default="5" />
-	<aura:attribute name="activeColor" type="String" default="ffd055" />
+
 	<aura:attribute name="readOnly" type="Boolean" default="false" />
+	<aura:attribute name="activeColor" type="String" default="#ffd055" />
+	<aura:attribute name="inactiveColor" type="String" default="#d8d8d8" />
+
+	<aura:attribute name="stars" type="Object[]" />
 
 	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+	<aura:handler name="change" value="{!v.rating}" action="{!c.init}" />
+	<aura:handler name="clicked" event="c:E_Message" action="{!c.onStarClicked}" />
 
-	<lightning:container aura:id="starRating"
-		src="{!$Resource.VueStarRating + v.url}"
-		onmessage="{!c.onMessage}"
-		onerror="{!c.onError}" >
-	</lightning:container>
+	<aura:iteration var="star" items="{!v.stars}">
+		<c:Star star="{!star}"
+			readOnly="{!v.readOnly}"
+			activeColor="{!v.activeColor}"
+			inactiveColor="{!v.inactiveColor}" />
+	</aura:iteration>
 </aura:component>

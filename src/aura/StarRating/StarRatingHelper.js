@@ -1,28 +1,30 @@
 ({
-	setUrl: function(cmp) {
-		var url = cmp.get("v.url");
-		var rating = cmp.get("v.rating");
+	initializeStars: function(cmp) {
 		var maxRating = cmp.get("v.maxRating");
-		var activeColor = cmp.get("v.activeColor");
-		var readOnly = cmp.get("v.readOnly");
+		var rating = cmp.get("v.rating");
 
-		var params = [
-			{
-				key: 'rating',
-				value: rating
-			}, {
-				key: 'maxRating',
-				value: maxRating
-			}, {
-				key: 'activeColor',
-				value: activeColor
-			}, {
-				key: 'readOnly',
-				value: readOnly
-			}];
+		var stars = [];
+		for(var i = 1; i < maxRating + 1; i++) {
+			var isActive = i <= rating;
+			var star = {
+				id: i,
+				isActive: isActive
+			}
+			stars.push(star);
+		}
+		cmp.set("v.stars", stars);
+	},
 
-		var paramStrings = params.map(param => param.key + '=' + param.value)
-		url += '?' + paramStrings.join('&');
-		cmp.set("v.url", url);
+	setStars: function(cmp, event) {
+		var clickedStar = event.getParams().data;
+		var stars = cmp.get("v.stars");
+
+		var newStars = stars.map(function(star) {
+			star.isActive = star.id <= clickedStar.id;
+			return star;
+		});
+
+		cmp.set("v.stars", stars);
+		cmp.set("v.rating", clickedStar.id);
 	}
 })

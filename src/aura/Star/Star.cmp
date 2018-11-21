@@ -1,0 +1,16 @@
+<aura:component description="Star" >
+	<ltng:require styles="{!join(',',
+		$Resource.Vendors + '/fa/css/all.css')}" />
+
+	<aura:attribute name="star" type="Object" />
+
+	<aura:attribute name="readOnly" type="Boolean" default="false" />
+	<aura:attribute name="activeColor" type="String" default="#ffd055" />
+	<aura:attribute name="inactiveColor" type="String" default="#d8d8d8" />
+
+	<aura:registerEvent name="clicked" type="c:E_Message" />
+
+	<i class="{!'fas fa-star' + (v.readOnly ? '' : ' clickable')}"
+		onclick="{!c.onClick}"
+		style="{!'color: ' + (v.star.isActive ? v.activeColor : v.inactiveColor)}" ></i>
+</aura:component>
