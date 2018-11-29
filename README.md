@@ -2,6 +2,14 @@
 
 A Salesforce Lightning StarRating Component. Requires Font Awesome Static Resource.
 
+---
+## Deploy to Salesforce
+
+Using the [githubsfdeploy app](https://github.com/afawcett/githubsfdeploy), add this code to your Salesfore Org.
+
+<a target="_blank" rel="noopener noreferrer" href="https://githubsfdeploy.herokuapp.com/app/githubdeploy/jlyon87/lightning-star-rating"><img src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png" alt="Button" style="max-width:100%;"></a>
+
+---
 ## Demo
 
 ![star-rating-demo](./star-rating-demo.gif)
